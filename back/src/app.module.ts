@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppService, DataLoaderService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { RounderModule } from './rounder/rounder.module';
 import { ReputationModule } from './reputation/reputation.module';
@@ -23,6 +23,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     ReputationModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, DataLoaderService],
 })
 export class AppModule {}

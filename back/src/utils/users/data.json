@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Javier Plata",
+    "email": "Pasacoin1@gamil.com",
+    "password": "Password123!",
+    "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF01",
+    "privateKey": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "reputation": 0,
+    "rol": "admin"
+  },
+  {
+    "name": "Lupe Canaviri",
+    "email": "Pasacoin2@gmail.com",
+    "password": "Password123!",
+    "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF02",
+    "privateKey": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "reputation": 0,
+    "rol": "admin"
+  }
+]

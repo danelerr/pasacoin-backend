@@ -3,7 +3,6 @@ import { config as dotenvConfig } from 'dotenv';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
 dotenvConfig({ path: '.env.development' });
-
 const config = {
   type: 'postgres',
   database: process.env.DB_NAME,
