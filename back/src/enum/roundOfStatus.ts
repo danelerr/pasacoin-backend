@@ -1,4 +1,6 @@
 export enum RoundOfStatus {
-  PRIVATE = 'private',
-  PUBLIC = 'public',
+  CREATED = 'created',
+  IN_PROGRESS = 'inprogress',
+  CANCELED = 'canceled',
+  FINALIZED = 'finalized',
 }

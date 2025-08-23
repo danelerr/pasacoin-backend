@@ -16,5 +16,23 @@
     "privateKey": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "reputation": 0,
     "rol": "admin"
+  },
+  {
+    "name": "Daniel Cueto",
+    "email": "Pasacoin3@gmail.com",
+    "password": "Password123!",
+    "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF03",
+    "privateKey": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "reputation": 0,
+    "rol": "admin"
+  },
+  {
+    "name": "JeanPool Cruz",
+    "email": "Pasacoin4@gmail.com",
+    "password": "Password123!",
+    "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF04",
+    "privateKey": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "reputation": 0,
+    "rol": "admin"
   }
 ]
