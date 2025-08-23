@@ -66,4 +66,31 @@ export class UsersRepository {
     console.log('Información del usuario actualizada:', user.email);
     return 'Información actualizada con éxito';
   }
+
+  async getUserByWallet(address: string) {
+    return await this.userRepository.findOne({
+      where: { wallet: address },
+    });
+  }
+
+  async registerUserWithWalletRepository(address: string) {
+    const newUser = this.userRepository.create({
+      wallet: address,
+    });
+    await this.userRepository.save(newUser);
+    console.log('Usuario registrado con wallet:', newUser.wallet);
+    return 'Registro con wallet realizado con éxito';
+  }
+
+  async saveWalletChallenge(address: string, challenge: string) {
+    const user = await this.userRepository.findOne({
+      where: { wallet: address },
+    });
+    if (!user) {
+      throw new Error('Usuario no encontrado');
+    }
+    user.password = challenge;
+    await this.userRepository.save(user);
+    return challenge;
+  }
 }

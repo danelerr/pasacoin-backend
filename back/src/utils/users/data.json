@@ -4,8 +4,7 @@
     "email": "Pasacoin1@gamil.com",
     "password": "Password123!",
     "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF01",
-    "privateKey": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "reputation": 0,
+    "reputation": 5,
     "rol": "admin"
   },
   {
@@ -13,8 +12,7 @@
     "email": "Pasacoin2@gmail.com",
     "password": "Password123!",
     "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF02",
-    "privateKey": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "reputation": 0,
+    "reputation": 5,
     "rol": "admin"
   },
   {
@@ -22,8 +20,7 @@
     "email": "Pasacoin3@gmail.com",
     "password": "Password123!",
     "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF03",
-    "privateKey": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "reputation": 0,
+    "reputation": 5,
     "rol": "admin"
   },
   {
@@ -31,8 +28,7 @@
     "email": "Pasacoin4@gmail.com",
     "password": "Password123!",
     "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF04",
-    "privateKey": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "reputation": 0,
+    "reputation": 5,
     "rol": "admin"
   }
 ]

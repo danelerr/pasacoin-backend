@@ -10,17 +10,14 @@ export class Users {
   @Column({ type: 'varchar', length: 50, nullable: true })
   name: string;
 
-  @Column({ type: 'varchar', length: 50, nullable: false, unique: true })
+  @Column({ type: 'varchar', length: 50, nullable: true, unique: true })
   email: string;
 
-  @Column({ type: 'varchar', length: 100, nullable: false })
+  @Column({ type: 'varchar', length: 100, nullable: true })
   password: string;
 
   @Column({ type: 'varchar', length: 100, nullable: true, unique: true })
-  walletAddress: string;
-
-  @Column({ type: 'varchar', length: 100, nullable: true })
-  privateKey: string;
+  wallet: string;
 
   @Column({ type: 'float', default: 0 })
   reputation: number;

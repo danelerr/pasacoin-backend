@@ -33,8 +33,7 @@ export class DataLoaderService implements OnModuleInit {
               name: user.name,
               email: user.email,
               password: user.password,
-              walletAddress: user.walletAddress,
-              privateKey: user.privateKey,
+              wallet: user.wallet,
               reputation: user.reputation,
               rol: user.rol,
             });
