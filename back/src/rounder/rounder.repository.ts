@@ -103,4 +103,78 @@ export class RounderRepository {
     );
     return 'Ronda pública creada con éxito';
   }
+  async geRoundedByUuid(idRounded: string) {
+    return await this.roundedRepository.findOne({
+      where: { id: idRounded },
+    });
+  }
+  async joinRoundedPublicRepository(user: Users, rounded: Rounders) {
+    rounded.numberActualOfParticipants += 1;
+    if (rounded.numberActualOfParticipants < rounded.numberOfParticipants) {
+      await this.roundedRepository.save(rounded);
+      const newParticipationRounded =
+        this.participationRoundersRepository.create({
+          user: user,
+          rounder: rounded,
+          finalizedRounded: false,
+        });
+      await this.participationRoundersRepository.save(newParticipationRounded);
+      console.log(
+        'Usuario:',
+        user.email,
+        'se ha unido a la ronda pública ID:',
+        rounded.id,
+      );
+      return 'Te has unido a la ronda pública con éxito';
+    }
+    rounded.status = RoundOfStatus.IN_PROGRESS;
+    const now = new Date();
+    const nextPayDate = new Date(
+      now.getTime() + rounded.durationOfRound * 24 * 60 * 60 * 1000,
+    );
+    rounded.lastDatePayOfRound = nextPayDate;
+    await this.roundedRepository.save(rounded);
+    const newParticipationRounded = this.participationRoundersRepository.create(
+      {
+        user: user,
+        rounder: rounded,
+        finalizedRounded: false,
+      },
+    );
+    await this.participationRoundersRepository.save(newParticipationRounded);
+    console.log(
+      'Usuario:',
+      user.email,
+      'se ha unido a la ronda pública ID:',
+      rounded.id,
+    );
+    const newRoundedPublic = this.roundedRepository.create({
+      createDate: new Date(),
+      numberOfRounds: rounded.numberOfRounds,
+      payOfRounds: rounded.payOfRounds,
+      numberOfParticipants: rounded.numberOfParticipants,
+      numberActualOfParticipants: 0,
+      durationOfRound: rounded.durationOfRound,
+      lastDatePayOfRound: null,
+      numberMaxOfRounds: rounded.numberOfRounds,
+      numberActualOfRounds: 0,
+      status: RoundOfStatus.CREATED,
+      visibility: RoundOfVisibility.PUBLIC,
+    });
+    await this.roundedRepository.save(newRoundedPublic);
+    console.log(
+      'Ronda pública creada automáticamente ID:',
+      newRoundedPublic.id,
+    );
+    return 'Te has unido a la ronda pública con éxito, la ronda ha comenzado';
+  }
+
+  getUserInRoundedByUuid(idUser: string, idRounded: string) {
+    return this.participationRoundersRepository.findOne({
+      where: {
+        user: { id: idUser },
+        rounder: { id: idRounded },
+      },
+    });
+  }
 }

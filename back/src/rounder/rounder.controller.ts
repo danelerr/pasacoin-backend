@@ -2,6 +2,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { RounderService } from './rounder.service';
 import { CreateRoundedPrivateDto } from './Dtos/createRoundedPrivateDto';
 import { CreateRoundedPublicDto } from './Dtos/createRoundedPublicDto';
+import { JoinRoundedDto } from './Dtos/joinRounded.Dto';
 
 @Controller('rounder')
 export class RounderController {
@@ -30,5 +31,9 @@ export class RounderController {
     return await this.rounderServices.postCreateRoundedPublicService(
       createRoundedPublicDto,
     );
+  }
+  @Post('joinRoundedPublic')
+  async joinRoundedPublic(@Body() joinRoundedDto: JoinRoundedDto) {
+    return await this.rounderServices.joinRoundedPublicService(joinRoundedDto);
   }
 }

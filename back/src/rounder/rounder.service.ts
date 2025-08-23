@@ -8,6 +8,9 @@ import { RounderRepository } from './rounder.repository';
 import { UsersRepository } from 'src/users/users.repository';
 import { CreateRoundedPublicDto } from './Dtos/createRoundedPublicDto';
 import { Rol } from 'src/enum/rol.enum';
+import { JoinRoundedDto } from './Dtos/joinRounded.Dto';
+import { RoundOfVisibility } from 'src/enum/roundOfVisibility';
+import { RoundOfStatus } from 'src/enum/roundOfStatus';
 
 @Injectable()
 export class RounderService {
@@ -117,6 +120,48 @@ export class RounderService {
     return await this.roundedRepository.postCreateRoundedPublicRepository(
       createRoundedPublicDto,
       user,
+    );
+  }
+
+  async joinRoundedPublicService(joinRoundedDto: JoinRoundedDto) {
+    const user = await this.userRepository.getUserByUuid(joinRoundedDto.idUser);
+    if (!user) {
+      throw new BadRequestException('Usuario no encontrado');
+    }
+    const rounded = await this.roundedRepository.geRoundedByUuid(
+      joinRoundedDto.idRounded,
+    );
+    if (!rounded) {
+      throw new BadRequestException('Ronda no encontrada');
+    }
+    if (rounded.visibility !== RoundOfVisibility.PUBLIC) {
+      throw new BadRequestException('La ronda no es pública no te puedes unir');
+    }
+    if (rounded.status !== RoundOfStatus.CREATED) {
+      throw new BadRequestException('La ronda no está disponible para unirse');
+    }
+    const userParticipation =
+      await this.roundedRepository.getCountRoundedUserByUuid(
+        joinRoundedDto.idUser,
+      );
+    if (userParticipation >= 3) {
+      throw new BadRequestException(
+        'No puedes unirte a más rondas, ya estás participando en 3 rondas sin finalizar',
+      );
+    }
+    const userExistingInRounded =
+      await this.roundedRepository.getUserInRoundedByUuid(
+        joinRoundedDto.idUser,
+        joinRoundedDto.idRounded,
+      );
+    if (userExistingInRounded) {
+      throw new BadRequestException(
+        'Ya estás participando en esta ronda pública',
+      );
+    }
+    return await this.roundedRepository.joinRoundedPublicRepository(
+      user,
+      rounded,
     );
   }
 }
