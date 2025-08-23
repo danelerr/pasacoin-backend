@@ -8,6 +8,16 @@ const PORT = process.env.PORT || 3002;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const allowedOrigins =
+    process.env.DOMAIN_FRONT?.split(',').map((origin) => origin.trim()) || [];
+  app.use(loggerGlobal);
+  console.log(allowedOrigins);
+  app.enableCors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  });
   app.use(loggerGlobal);
   app.useGlobalPipes(new ValidationPipe());
   const options = new DocumentBuilder()
