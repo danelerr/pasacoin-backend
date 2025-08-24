@@ -15,7 +15,7 @@ const config = {
   autoLoadEntities: true,
   logging: false,
   synchronize: true,
-  dropSchema: true,
+  dropSchema: false,
 };
 export default registerAs('typeorm', () => config);
 export const connectionSource = new DataSource(config as DataSourceOptions);
