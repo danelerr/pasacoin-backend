@@ -1,8 +1,6 @@
 import { registerAs } from '@nestjs/config';
-import { config as dotenvConfig } from 'dotenv';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
-dotenvConfig({ path: '.env.development' });
 const config = {
   type: 'postgres',
   database: process.env.DB_NAME,
@@ -14,7 +12,7 @@ const config = {
   migrations: ['dist/migrations/*{.ts,.js'],
   autoLoadEntities: true,
   logging: false,
-  synchronize: false,
+  synchronize: true,
   dropSchema: false,
 };
 export default registerAs('typeorm', () => config);
