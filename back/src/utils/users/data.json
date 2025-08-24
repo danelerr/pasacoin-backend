@@ -1,32 +1,32 @@
 [
   {
     "name": "Javier Plata",
-    "email": "Pasacoin1@gamil.com",
-    "password": "Password123!",
+    "email": "pasacoin1@gmail.com",
+    "password": "Password123*",
     "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF01",
     "reputation": 5,
     "rol": "admin"
   },
   {
     "name": "Lupe Canaviri",
-    "email": "Pasacoin2@gmail.com",
-    "password": "Password123!",
+    "email": "pasacoin2@gmail.com",
+    "password": "Password123*",
     "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF02",
     "reputation": 5,
     "rol": "admin"
   },
   {
     "name": "Daniel Cueto",
-    "email": "Pasacoin3@gmail.com",
-    "password": "Password123!",
+    "email": "pasacoin3@gmail.com",
+    "password": "Password123*",
     "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF03",
     "reputation": 5,
     "rol": "admin"
   },
   {
     "name": "JeanPool Cruz",
-    "email": "Pasacoin4@gmail.com",
-    "password": "Password123!",
+    "email": "pasacoin4@gmail.com",
+    "password": "Password123*",
     "walletAddress": "0xA1b2C3d4E5f678901234567890abcdefABCDEF04",
     "reputation": 5,
     "rol": "admin"

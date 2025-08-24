@@ -10,6 +10,8 @@ export class Rounders {
 
   @Column({ type: 'date', nullable: false, default: () => 'CURRENT_DATE' })
   createDate: Date;
+  @Column({ type: 'varchar', length: 100, nullable: true })
+  name: string;
 
   @Column({ type: 'int', nullable: false })
   numberOfRounds: number;

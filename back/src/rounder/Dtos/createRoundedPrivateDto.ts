@@ -15,6 +15,18 @@ export class CreateRoundedPrivateDto {
   id: string;
 
   @ApiProperty({
+    description: 'Nombre de la ronda',
+    example: 'Ronda 1',
+  })
+  @IsNotEmpty({
+    message: 'El nombre de la ronda es requerido',
+  })
+  @IsString({
+    message: 'El nombre de la ronda debe ser una cadena de caracteres',
+  })
+  name: string;
+
+  @ApiProperty({
     description: 'Número de rondas seleccionadas',
     example: 10,
   })

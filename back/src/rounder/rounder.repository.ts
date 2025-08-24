@@ -48,6 +48,7 @@ export class RounderRepository {
   ) {
     const newRounded = this.roundedRepository.create({
       createDate: new Date(),
+      name: createRoundedPrivateDto.name,
       numberOfRounds: createRoundedPrivateDto.numberOfRounds,
       payOfRounds: createRoundedPrivateDto.payOfRounds,
       numberOfParticipants: createRoundedPrivateDto.numberOfRounds,
