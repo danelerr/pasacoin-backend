@@ -8,17 +8,19 @@ const PORT = process.env.PORT || 3002;
 console.log(`Servidor corriendo en el puerto ${PORT}`);
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const allowedOrigins =
-    process.env.DOMAIN_FRONT?.split(',').map((origin) => origin.trim()) || [];
+  const allowedOrigins = process.env.DOMAIN_FRONT?.split(',').map((origin) =>
+    origin.trim(),
+  ) || ['*'];
+
   app.use(loggerGlobal);
-  console.log(allowedOrigins);
+  console.log('Allowed origins:', allowedOrigins);
+
   app.enableCors({
-    origin: '*',
+    origin: allowedOrigins.length > 0 ? allowedOrigins : '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
   });
-  app.use(loggerGlobal);
   app.useGlobalPipes(new ValidationPipe());
   const options = new DocumentBuilder()
     .setTitle('Backend PasaCoin')
