@@ -5,7 +5,7 @@ import { RoundOfVisibility } from 'src/enum/roundOfVisibility';
 
 @Entity({ name: 'rounders' })
 export class Rounders {
-  @PrimaryGeneratedColumn('uuid')
+  @PrimaryGeneratedColumn('increment')
   id: string;
 
   @Column({ type: 'date', nullable: false, default: () => 'CURRENT_DATE' })
