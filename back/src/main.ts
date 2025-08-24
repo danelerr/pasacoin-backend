@@ -5,7 +5,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 const PORT = process.env.PORT || 3002;
-
+console.log(`Servidor corriendo en el puerto ${PORT}`);
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const allowedOrigins =
@@ -27,7 +27,7 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
-  await app.listen(PORT);
+  await app.listen(PORT, '0.0.0.0');
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 }
 void bootstrap();
