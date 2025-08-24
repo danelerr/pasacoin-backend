@@ -22,9 +22,12 @@ The project consists of two main components:
   - Participation Tracking
 
 ### 2. Smart Contracts (Solidity)
-- **Platform**: Ethereum-compatible (Hardhat)
+- **Platform**: Monad Testnet (Chain ID: 10143)
 - **Main Contract**: PasaCoin.sol - Manages rotating rounds
 - **Features**: ERC20 token integration, round creation, payment processing
+- **Verified Contracts**:
+  - **PasaCoin**: [0x4e5d585ef8696aD9894fC0Ea26d920e42548a6fF](https://testnet.monadexplorer.com/address/0x4e5d585ef8696aD9894fC0Ea26d920e42548a6fF?portfolio=Info&tab=Contract) - Verified on Monad Testnet Explorer
+
 
 ## ✨ Features
 
@@ -228,6 +231,22 @@ For support and questions:
 - [NestJS Documentation](https://docs.nestjs.com/)
 - [Hardhat Documentation](https://hardhat.org/docs)
 - [Solidity Documentation](https://docs.soliditylang.org/)
+
+## 📋 Verified Smart Contracts
+
+The following smart contracts are deployed and verified on the **Monad Testnet**:
+
+### PasaCoin Contract
+- **Address**: [0x4e5d585ef8696aD9894fC0Ea26d920e42548a6fF](https://testnet.monadexplorer.com/address/0x4e5d585ef8696aD9894fC0Ea26d920e42548a6fF?portfolio=Info&tab=Contract)
+- **Network**: Monad Testnet (Chain ID: 10143)
+- **Explorer**: [Monad Testnet Explorer](https://testnet.monadexplorer.com)
+- **Status**: ✅ Verified
+- **Purpose**: Main contract for managing rotating rounds with ERC20 token integration
+
+### Token Information
+- **USDM Token**: 0x88b8E2161DEDC77EF4ab7585569D2415a1C1055D
+- **Network**: Monad Testnet
+- **Purpose**: ERC20 token used for round payments and distributions
 
 ---
 
