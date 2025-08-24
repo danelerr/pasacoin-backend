@@ -174,14 +174,21 @@ export class RounderRepository {
         ownerWallet,
       );
 
+      const tokenDecimals = 6;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+      const amountPerRound = ethers.parseUnits(
+        rounded.payOfRounds.toString(),
+        tokenDecimals,
+      );
+
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       const tx = await contract.createRound(
         Number(rounded.id), // roundId
         rounded.numberOfRounds, // totalRounds
-        rounded.payOfRounds, // amountPerRound
+        amountPerRound, // amountPerRound
         rounded.durationOfRound, // durationDays
-        Math.floor(nextPayDate.getTime() / 1000), // initialLastPaymentDate (timestamp en segundos)
-        participants, // <-- aquí van las wallets de los participantes
+        Math.floor(nextPayDate.getTime() / 1000), // initialLastPaymentDate
+        participants,
       );
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       await tx.wait();
