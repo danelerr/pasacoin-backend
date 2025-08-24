@@ -11,10 +11,17 @@ export class AppController {
   }
 
   @Get('health')
-  healthCheck(): { status: string; timestamp: string } {
+  healthCheck(): {
+    status: string;
+    timestamp: string;
+    port: string;
+    env: string;
+  } {
     return {
       status: 'ok',
       timestamp: new Date().toISOString(),
+      port: process.env.PORT || '3002',
+      env: process.env.NODE_ENV || 'development',
     };
   }
 }
